@@ -5,6 +5,7 @@ var ReactRouter         = require('react-router');
 var Link                = ReactRouter.Link;
 var UserDetailsWrapper  = require('./UserDetailsWrapper');
 var UserDetails         = require('./UserDetails');
+var MainContainer       = require('./MainContainer');
 
 function puke(obj) {
   return <pre>{JSON.stringify(obj, null, ' ')}</pre>
@@ -13,7 +14,7 @@ function puke(obj) {
 function ConfirmBattle (props) {
   return props.isLoading === true
     ? <p>LOADING</p>
-    : <div className="jumbotron col-sm-12 text-center" style={styles.transparentBg}>
+    : <MainContainer>
         <h1>Confirm Players</h1>
         <div className='col-sm-8 col-sm-offset-2'>
           <UserDetailsWrapper header='Player 1'>
@@ -33,7 +34,7 @@ function ConfirmBattle (props) {
             </Link>
           </div>
         </div>
-      </div>
+      </MainContainer>
 }
 
 ConfirmBattle.propTypes = {
